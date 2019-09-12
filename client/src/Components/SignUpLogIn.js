@@ -99,7 +99,7 @@ class SignUpLogIn extends Component {
             placeholder="Password"
             label="password"
           />
-          <button onClick={this.signUp} variant="primary" type="submit">
+        <button onClick={this.signIn} variant="primary" type="submit">
             Submit
           </button>
           <p>

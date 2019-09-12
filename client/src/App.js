@@ -4,23 +4,21 @@ import SignUpLogIn from "./Components/SignUpLogIn"
 import axios from 'axios'
 import Homepage from "./Components/Homepage"
 class App extends Component {
-  state = {  
-    isSignedIn: false
+  state = {
+    isSignedIn: false,
   }
 
   signUp = async (name, email, password) => {
     const payload = {
       name: name,
       email: email,
-      password: password,
+      password: password
     };
     try {
       const res = await axios.post("http://localhost:3000/users", payload);
-      // saveAuthTokens(res.headers);
-      this.setState({
-        isSignedIn: true
-      });
-    } catch {
+      localStorage.setItem('token', res.data)
+      this.setState({isSignedIn: true});
+    } catch  {
       alert("You must fill in all of the fields.");
     }
   };
@@ -31,15 +29,10 @@ class App extends Component {
       password
     };
     try {
-      const res = await axios.post(
-        "http://localhost:3000/users/login",
-        payload
-      );
-      // saveAuthTokens(res.headers);
-      this.setState({
-        isSignedIn: true
-      });
-    } catch {
+      const res = await axios.post("http://localhost:3000/users/login", payload);
+      localStorage.setItem('token', res.data)
+      this.setState({isSignedIn: true});
+    } catch  {
       alert("You have entered an invalid username or password.");
     }
   };
@@ -47,32 +40,19 @@ class App extends Component {
   signOut = async e => {
     e.preventDefault();
     alert("You are logged out.");
-
-    // clearAuthTokens();
-    this.setState({
-      isSignedIn: false
-    });
+    localStorage.clear();
+    this.setState({isSignedIn: false});
   };
 
+  render() {
+    return (<div>
 
-  render() { 
-    return ( 
-      <div>
-
-<Switch>
-  <Route exact path="/" component={Homepage}></Route>
-       <Route exact path="/login" render={props => (
-         <SignUpLogIn isSignedIn={this.state.isSignedIn}
-         signIn={this.signIn}
-          signUp={this.signUp}
-         />
-       )}>
-
-       </Route>
-       </Switch>
-      </div>
-     );
+      <Switch>
+        <Route exact="exact" path="/" component={Homepage}></Route>
+        <Route exact="exact" path="/login" render={props => (<SignUpLogIn isSignedIn={this.state.isSignedIn} signIn={this.signIn} signUp={this.signUp}/>)}></Route>
+      </Switch>
+    </div>);
   }
 }
- 
+
 export default App;
