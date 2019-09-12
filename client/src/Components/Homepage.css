@@ -6,9 +6,44 @@ h1.title {
 
 div.homepage {
     margin: 0 auto;
+    width: 100vw;
 }
 
 div.homepage > h2 {
     font-weight: normal;
     text-align: center;
+}
+
+div.select-options {
+    display: flex;
+    flex-direction: row;
+    width: 72%;
+    margin: 0 auto;
+    border: 1px solid black;
+}
+
+div.select-options > option {
+    width: 20%;
+    height: 25px;
+    margin: auto 0;
+    padding: 0px 0px;
+}
+
+.add-mood-button {
+    border: none;
+    border-radius: 25px;
+    font-size: 24px;
+    padding: 12px 30px;
+    text-align: center;
+    background-color: #C74FC7;
+    margin-top: 15px;
+    font-weight: normal;
+    color: white;
+}
+
+.add-mood {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
 }
