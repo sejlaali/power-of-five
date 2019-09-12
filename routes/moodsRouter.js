@@ -13,16 +13,17 @@ moodsRouter.get('/', async (req, res) => {
     res.json(moods);
   } catch(e) {
     console.error(e);
-    res.status(403).send('no access');
+    res.status(403).send('error on GET MOODS (line 16)');
   }
 })
 
 moodsRouter.post('/', async (req, res) => {
   try {
-    let { type, id } = req.body;
+    let { number, text, id } = req.body;
     const user = await User.findByPk(id)
     const mood = await Mood.create({
-      type
+      number,
+      text
     });
 
     await mood.setUser(user)
