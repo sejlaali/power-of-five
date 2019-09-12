@@ -1,3 +1,4 @@
+
 h1.title {
     text-align: center;
     font-family: 'Avenir';
@@ -6,8 +7,8 @@ h1.title {
 
 div.homepage {
     margin: 0 auto;
-    width: 100vw;
-}
+    width: 100%;
+} 
 
 div.homepage > h2 {
     font-weight: normal;
@@ -18,8 +19,8 @@ div.select-options {
     display: flex;
     flex-direction: row;
     width: 72%;
-    margin: 0 auto;
     border: 1px solid black;
+    margin: 0 auto;
 }
 
 div.select-options > option {

@@ -4,6 +4,7 @@ import SignUpLogIn from "./Components/SignUpLogIn"
 import axios from 'axios'
 import Homepage from "./Components/Homepage"
 import SubmitMood from "./Components/SubmitMood"
+import NavBurger from "./Components/NavBurger"
 
 class App extends Component {
   constructor(){
@@ -51,8 +52,9 @@ class App extends Component {
   };
 
   render() {
-    return (<div>
-
+    return (
+    <div>
+      {this.state.isSignedIn ? <NavBurger /> : null}
       <Switch>
         <Route exact="exact" path="/" component={Homepage}></Route>
         <Route exact="exact" path="/submit" component={SubmitMood}></Route>

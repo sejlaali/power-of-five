@@ -19,11 +19,11 @@ class Homepage extends Component {
         <h2>{this.state.date}</h2>
         <BubbleChart
           graph={{
-            zoom: .99,
+            zoom: 1.0,
           }}
           showLegend={false}
-          width={380}
-          height={380}
+          width={340}
+          height={340}
           overflow={false}
           padding={10}
           fontFamily="Montserrat"
