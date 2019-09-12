@@ -44,7 +44,6 @@ usersRouter.post('/login', async (req, res) => {
     const { email, password } = req.body;
     const user = await User.findOne({where:{email}});
     const isSame = await compare(password, user.password_digest);
-    console.log(user)
     if (isSame === true) {
       const userData = {
         id: user.dataValues.id,
