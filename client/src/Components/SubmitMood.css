@@ -1,0 +1,15 @@
+img {
+  width: 42vw;
+}
+
+.submit-header {
+  text-align: center;
+}
+
+.png-container {
+  width: 100vw;
+  height: 35vh;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 5vh;
+}
