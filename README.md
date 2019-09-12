@@ -1,1 +1,5 @@
-# power-of-three
+# Power-of-three
+
+# Installation
+
+## Setup
