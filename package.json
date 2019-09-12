@@ -1,0 +1,25 @@
+{
+  "name": "power-of-three",
+  "version": "1.0.0",
+  "description": "# Installation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sejlaali/power-of-three.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sejlaali/power-of-three/issues"
+  },
+  "homepage": "https://github.com/sejlaali/power-of-three#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^1.19.2",
+    "pg": "^7.12.1",
+    "sequelize": "^5.18.4"
+  }
+}
