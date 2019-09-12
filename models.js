@@ -30,7 +30,7 @@ const Mood = sequelize.define('mood', {
       type: Sequelize.STRING,
       allowNull: false
     },
-    text: Sequelize.String
+    text: Sequelize.STRING,
 })
 
 Mood.belongsTo(User);

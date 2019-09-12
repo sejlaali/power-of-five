@@ -3,11 +3,12 @@ import {Link, Route, Switch} from 'react-router-dom'
 import SignUpLogIn from "./Components/SignUpLogIn"
 import axios from 'axios'
 import Homepage from "./Components/Homepage"
+import SubmitMood from "./Components/SubmitMood"
 
 class App extends Component {
   constructor(){
     super()
-  
+
   this.state = {
     isSignedIn: false,
   }
@@ -54,6 +55,7 @@ class App extends Component {
 
       <Switch>
         <Route exact="exact" path="/" component={Homepage}></Route>
+        <Route exact="exact" path="/submit" component={SubmitMood}></Route>
         <Route exact="exact" path="/login" render={props => (<SignUpLogIn isSignedIn={this.state.isSignedIn} signIn={this.signIn} signUp={this.signUp}/>)}></Route>
       </Switch>
     </div>);
