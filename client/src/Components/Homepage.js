@@ -41,4 +41,6 @@ class Homepage extends Component {
 </div>
        )
    }
+ }
+
 export default Homepage;
