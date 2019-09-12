@@ -8,7 +8,8 @@ async function seed() {
   })
 
   const mood = await Mood.create({
-    type:'this mood'
+    number:7,
+    text: "this is my mood"
   })
 
   await mood.setUser(user)

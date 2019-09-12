@@ -41,6 +41,12 @@ class Homepage extends Component {
       </div>
     );
   }
-}
 
+   render() {
+       return (
+<div>
+    <Link to="/login"><button>ADD MOOD/LOGIN </button></Link>
+</div>
+       )
+   }
 export default Homepage;
