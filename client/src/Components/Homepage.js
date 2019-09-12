@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import BubbleChart from "@weknow/react-bubble-chart-d3";
 import './Homepage.css'
+import MoodBar from './MoodBar'
 
 class Homepage extends Component {
     constructor() {
@@ -12,7 +13,6 @@ class Homepage extends Component {
         }
     
   render() {
-      let date = new Date()
     return (
       <div className="homepage">
         <h1 className="title">Collective Mood</h1>
@@ -20,29 +20,27 @@ class Homepage extends Component {
         <BubbleChart
           graph={{
             zoom: .99,
-            offsetX: -0.05,
-            offsetY: -0.01
           }}
           showLegend={false}
-          width={400}
-          height={400}
+          width={380}
+          height={380}
           overflow={false}
-          padding={0}
+          padding={10}
           fontFamily="Montserrat"
           data={[
             { label: "CRM", value: 3, color: "#26457B" },
             { label: "API", value: 1, color: "#676AEB" },
-            { label: "Data", value: 3 , color: "#13d128"},
+            { label: "Data", value: 4, color: "#13d128"},
             { label: "Commerce", value: 1, color: "#FFF01A" },
             { label: "AI", value: 2, color: "#F78547" }
           ]}
         />
-        <Link to="/login">
-          <button>ADD MOOD/LOGIN </button>
+    <MoodBar />
+        <Link className="add-mood" to="/login">
+          <button className="add-mood-button">Add your Mood</button>
         </Link>
       </div>
     );
   }
- }
-
-export default Homepage;
+}
+  export default Homepage;
