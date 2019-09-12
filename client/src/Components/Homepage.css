@@ -1,0 +1,9 @@
+h1.title {
+    text-align: center;
+    font-family: 'Avenir';
+    font-weight: normal;
+}
+
+div.homepage {
+    margin: 0 auto;
+}
