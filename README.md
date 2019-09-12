@@ -1,4 +1,4 @@
-# Power-of-three
+# Power-of-five
 
 # Installation
 
