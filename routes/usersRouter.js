@@ -7,7 +7,7 @@ const { hash,
         restrict
  } = require('../auth');
 
-usersRouter.get('/', restrict, async (req, res) => {
+usersRouter.get('/', async (req, res) => {
   try {
     const users = await User.findAll();
     res.json(users);
@@ -19,8 +19,8 @@ usersRouter.get('/', restrict, async (req, res) => {
 
 usersRouter.post('/', async (req, res) => {
   try {
-    let { email, password_digest } = req.body;
-    password_digest = await hash(password_digest);
+    let { email, password, name } = req.body;
+    const password_digest = await hash(password);
     const user = await User.create({
       email,
       password_digest,
@@ -44,6 +44,7 @@ usersRouter.post('/login', async (req, res) => {
     const { email, password } = req.body;
     const user = await User.findOne({where:{email}});
     const isSame = await compare(password, user.password_digest);
+    console.log(user)
     if (isSame === true) {
       const userData = {
         id: user.dataValues.id,

@@ -4,6 +4,7 @@ const logger = require('morgan');
 const cors = require('cors');
 
 const usersRouter = require('./routes/usersRouter');
+const moodsRouter = require('./routes/moodsRouter');
 
 const app = express();
 
