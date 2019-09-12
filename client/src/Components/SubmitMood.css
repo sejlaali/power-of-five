@@ -1,4 +1,13 @@
-img {
+.submit-mood h1, .submit-mood h2 {
+  font-family: 'Avenir';
+  font-weight: normal;
+}
+
+.submit-mood h1 {
+  margin-top: 5vh;
+}
+
+.submit-mood img {
   width: 42vw;
 }
 
@@ -8,8 +17,21 @@ img {
 
 .png-container {
   width: 100vw;
-  height: 35vh;
+  height: 40vh;
   display: flex;
   justify-content: space-around;
   padding-top: 5vh;
+  margin-bottom: 6vh;
+}
+
+.submit-mood .add-mood {
+  margin-top: 3vh;
+}
+
+.submit-mood .select-options {
+  border: none;
+}
+
+.submit-mood option:hover {
+  transform: scale(1.2);
 }
