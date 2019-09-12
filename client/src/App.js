@@ -3,10 +3,15 @@ import {Link, Route, Switch} from 'react-router-dom'
 import SignUpLogIn from "./Components/SignUpLogIn"
 import axios from 'axios'
 import Homepage from "./Components/Homepage"
+
 class App extends Component {
-  state = {
+  constructor(){
+    super()
+  
+  this.state = {
     isSignedIn: false,
   }
+}
 
   signUp = async (name, email, password) => {
     const payload = {
