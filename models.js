@@ -26,7 +26,6 @@ const User = sequelize.define('user', {
 })
 
 const Mood = sequelize.define('mood', {
-    date: Sequelize.DATE,
     type: Sequelize.STRING
 })
 
