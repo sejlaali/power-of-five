@@ -3,10 +3,18 @@ import { Link } from "react-router-dom";
 import BubbleChart from "@weknow/react-bubble-chart-d3";
 import './Homepage.css'
 class Homepage extends Component {
+    constructor() {
+        super() 
+            this.state = {
+                date: new Date().toDateString()
+            }
+        }
+    
   render() {
     return (
       <div className="homepage">
         <h1 className="title">Collective Mood</h1>
+        <h2>{this.state.date}</h2>
         <BubbleChart
           graph={{
             zoom: .99,

@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/sejlaali/power-of-three#readme",
   "dependencies": {
+    "@weknow/react-bubble-chart-d3": "^1.0.12",
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
