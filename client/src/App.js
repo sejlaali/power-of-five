@@ -5,10 +5,10 @@ import axios from 'axios'
 import Homepage from "./Components/Homepage"
 import SubmitMood from "./Components/SubmitMood"
 import NavBurger from "./Components/NavBurger"
-import postMood from "./services/api.js"
+import {postMood} from "./services/api.js"
 
 class App extends Component {
-  constructor(){
+  constructor(props){
     super()
 
   this.state = {
@@ -60,9 +60,11 @@ class App extends Component {
 
   selectMood(e) {
     e.preventDefault();
-    let mood = this.state.mood;
-    mood.number = e.target.value;
-    this.setState({ mood })
+    if (this.state.isSignedIn) {
+      let mood = this.state.mood;
+      mood.number = e.target.value;
+      this.setState({ mood })
+    }
   }
 
   moodText(e) {
@@ -81,7 +83,7 @@ class App extends Component {
       {this.state.isSignedIn ? <NavBurger signOut={this.signOut}/> : null}
       <Switch>
         <Route exact="exact" path="/submit" component={props => (<SubmitMood selectMood={this.selectMood}/>)}></Route>
-        <Route exact="exact" path="/" render={props => (<Homepage isSignedIn={this.state.isSignedIn} />)}></Route>
+        <Route exact="exact" path="/" render={props => (<Homepage isSignedIn={this.state.isSignedIn} selectMood={this.selectMood} />)}></Route>
         <Route exact="exact" path="/login" render={props => (<SignUpLogIn isSignedIn={this.state.isSignedIn} signIn={this.signIn} signUp={this.signUp}/>)}></Route>
       </Switch>
     </div>);

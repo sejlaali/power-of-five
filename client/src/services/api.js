@@ -5,4 +5,10 @@ const postMood = async (mood, token) => {
   console.log('success?');
 }
 
-export default postMood;
+const getMoods = async () => {
+  const res = await axios.get('http://localhost:3000/moods');
+  return res.data;
+}
+
+export { postMood,
+         getMoods };
