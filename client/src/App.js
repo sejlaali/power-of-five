@@ -19,6 +19,7 @@ class App extends Component {
       number: null,
       text: null,
     },
+    clicked: false
   }
   this.selectMood = this.selectMood.bind(this);
   this.submitMoodFunc = this.submitMoodFunc.bind(this);
@@ -64,7 +65,6 @@ class App extends Component {
 
   signOut = async e => {
     e.preventDefault();
-    alert("You are logged out.");
     localStorage.clear();
     this.setState({isSignedIn: false});
   };
@@ -74,7 +74,9 @@ class App extends Component {
     if (this.state.isSignedIn) {
       let mood = this.state.mood;
       mood.number = e.target.value;
-      this.setState({ mood })
+      this.setState({ mood,
+      clicked: !this.state.clicked 
+    })
     }
   }
 
@@ -99,7 +101,7 @@ class App extends Component {
       {this.state.isSignedIn ? <NavBurger signOut={this.signOut}/> : null}
       <Switch>
     <Route exact path="/personal-history" render={props => (<PersonalHistory />)}></Route>
-        <Route exact="exact" path="/submit" component={props => (<SubmitMood selectMood={this.selectMood}/>)}></Route>
+        <Route exact="exact" path="/submit" component={props => (<SubmitMood clicked={this.state.clicked} selectMood={this.selectMood}/>)}></Route>
         <Route exact="exact" path="/" render={props => (<Homepage isSignedIn={this.state.isSignedIn} selectMood={this.selectMood} />)}></Route>
         <Route exact="exact" path="/login" render={props => (<SignUpLogIn isSignedIn={this.state.isSignedIn} signIn={this.signIn} signUp={this.signUp}/>)}></Route>
         <Route exact="exact" path="/submit_text" render={props => (<SubmitMoodText handleChange={this.handleMoodChange} submitMoodFunc={this.submitMoodFunc} mood={this.state.mood}/>)}></Route>
