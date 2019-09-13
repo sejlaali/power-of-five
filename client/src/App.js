@@ -5,6 +5,7 @@ import axios from 'axios'
 import Homepage from "./Components/Homepage"
 import SubmitMood from "./Components/SubmitMood"
 import NavBurger from "./Components/NavBurger"
+import postMood from "./services/api.js"
 
 class App extends Component {
   constructor(){
@@ -12,7 +13,13 @@ class App extends Component {
 
   this.state = {
     isSignedIn: false,
+    mood: {
+      number: null,
+      text: null,
+    },
   }
+  this.selectMood = this.selectMood.bind(this);
+  this.submitMoodFunc = this.submitMoodFunc.bind(this);
 }
 
   signUp = async (name, email, password) => {
@@ -51,13 +58,30 @@ class App extends Component {
     this.setState({isSignedIn: false});
   };
 
+  selectMood(e) {
+    e.preventDefault();
+    let mood = this.state.mood;
+    mood.number = e.target.value;
+    this.setState({ mood })
+  }
+
+  moodText(e) {
+    // handlechange func for textbox
+  }
+
+  submitMoodFunc(e) {
+    e.preventDefault();
+    const token = localStorage.getItem('token')
+    postMood(this.state.mood, token)
+  }
+
   render() {
     return (
     <div>
       {this.state.isSignedIn ? <NavBurger /> : null}
       <Switch>
         <Route exact="exact" path="/" component={Homepage}></Route>
-        <Route exact="exact" path="/submit" component={SubmitMood}></Route>
+        <Route exact="exact" path="/submit" component={props => (<SubmitMood selectMood={this.selectMood}/>)}></Route>
         <Route exact="exact" path="/login" render={props => (<SignUpLogIn isSignedIn={this.state.isSignedIn} signIn={this.signIn} signUp={this.signUp}/>)}></Route>
       </Switch>
     </div>);
