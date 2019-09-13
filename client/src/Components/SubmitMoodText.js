@@ -8,17 +8,25 @@ class SubmitMoodText extends Component {
   }
 
   render() {
+    let today = new Date();
+    let todayArray = today.toString().split(" ");
+    today = (todayArray[0] + " " + todayArray[1] + " " + todayArray[2] + ", " + todayArray[3]);
+
     return (
-      <div>
-        <h1>Private Journal</h1>
-        <h2>date box</h2>
-        <h3> mood color </h3>
+      <div className="mood-text-container">
+        <h1 className="text-header">Private Journal</h1>
+        <h2 className="text-header">{today}</h2>
+        <div className={`mood-color ${"_"+this.props.mood.number}`}></div>
         <textarea
+          className="mood-text"
           name="text"
           onChange={this.props.handleChange}
-          value={this.props.text}>
+          value={this.props.mood.text}
+          placeholder="This morning I woke up a bit late and missed out on the usual coffee. Felt rushed all the way through my arrival at work and was slammed with a large workload as soon as I sat down. Feeling very anxious and on edge.">
         </textarea>
-        <button onClick={(e) => this.props.submitMoodFunc(e)}>Save</button>
+        <Link className="mood-text-link" to="/">
+          <button className="add-mood-button" onClick={(e) => this.props.submitMoodFunc(e)}>Save</button>
+        </Link>
       </div>
     );
   }

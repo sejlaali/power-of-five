@@ -87,10 +87,9 @@ class App extends Component {
     }));
   }
 
-  submitMoodFunc(e) {
-    e.preventDefault();
-    const token = localStorage.getItem('token')
-    postMood(this.state.mood, token)
+  async submitMoodFunc(e) {
+    const token = localStorage.getItem('token');
+    await postMood(this.state.mood, token);
   }
 
   render() {
@@ -101,7 +100,7 @@ class App extends Component {
         <Route exact="exact" path="/submit" component={props => (<SubmitMood selectMood={this.selectMood}/>)}></Route>
         <Route exact="exact" path="/" render={props => (<Homepage isSignedIn={this.state.isSignedIn} selectMood={this.selectMood} />)}></Route>
         <Route exact="exact" path="/login" render={props => (<SignUpLogIn isSignedIn={this.state.isSignedIn} signIn={this.signIn} signUp={this.signUp}/>)}></Route>
-        <Route exact="exact" path="/submit_text" render={props => (<SubmitMoodText handleChange={this.handleMoodChange} submitMoodFunc={this.submitMoodFunc} text={this.state.mood.text}/>)}></Route>
+        <Route exact="exact" path="/submit_text" render={props => (<SubmitMoodText handleChange={this.handleMoodChange} submitMoodFunc={this.submitMoodFunc} mood={this.state.mood}/>)}></Route>
       </Switch>
     </div>);
   }
