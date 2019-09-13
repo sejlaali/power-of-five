@@ -42,7 +42,10 @@ usersRouter.post('/', async (req, res) => {
 usersRouter.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
-    const user = await User.findOne({where:{email}});
+    const user = await User.findOne({where:{
+      email: req.body.email
+    }});
+    console.log(user)
     const isSame = await compare(password, user.password_digest);
     if (isSame === true) {
       const userData = {

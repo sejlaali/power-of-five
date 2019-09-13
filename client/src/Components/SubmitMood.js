@@ -17,7 +17,7 @@ class SubmitMood extends Component {
           <img src={require('../images/Group.png')} alt="woman" />
           <img src={require('../images/Humaaan.png')} alt="man" />
         </div>
-        <MoodBar selectMood={this.props.selectMood}/>
+        <MoodBar moodObj = {this.props.moodObj} selectMood={this.props.selectMood}/>
         <Link className="add-mood" to="/submit_text">
           <button className="add-mood-button">Next</button>
         </Link>

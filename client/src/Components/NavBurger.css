@@ -21,10 +21,13 @@
   /* Change color on hover */
   .bm-item:hover {
     /* opacity: .3; */
+    color: #C74FC7;
   }
   
   .bm-item:focus {
     outline: 0;
+    color: #C74FC7;
+
   }
   
   /* The rest copied directly from react-burger-menu docs */
@@ -35,8 +38,8 @@
     /* background-color: black; */
     position: fixed;
     width: 23px;
-    left: 15px;
-    top: 15px;
+    left: 30px;
+    top: 35px;
     height:15px;
   }
   
@@ -105,6 +108,6 @@ border-radius: 50%;
 width: 8px;
 height: 8px;
 position: fixed;
-top: 7px;
-left: 11px;
+left: 26px;
+top: 26.5px;
   }
