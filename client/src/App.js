@@ -5,6 +5,7 @@ import axios from 'axios'
 import Homepage from "./Components/Homepage"
 import SubmitMood from "./Components/SubmitMood"
 import NavBurger from "./Components/NavBurger"
+import SubmitMoodText from "./Components/SubmitMoodText"
 import {postMood} from "./services/api.js"
 
 class App extends Component {
@@ -20,6 +21,7 @@ class App extends Component {
   }
   this.selectMood = this.selectMood.bind(this);
   this.submitMoodFunc = this.submitMoodFunc.bind(this);
+  this.handleMoodChange = this.handleMoodChange.bind(this);
 }
 
   signUp = async (name, email, password) => {
@@ -67,8 +69,14 @@ class App extends Component {
     }
   }
 
-  moodText(e) {
-    // handlechange func for textbox
+  handleMoodChange(e) {
+    let value = e.target.value;
+    let currentState = this.state.mood;
+    currentState.text = value;
+    this.setState(prevState => ({
+      ...prevState,
+      mood: currentState,
+    }));
   }
 
   submitMoodFunc(e) {
@@ -85,6 +93,7 @@ class App extends Component {
         <Route exact="exact" path="/submit" component={props => (<SubmitMood selectMood={this.selectMood}/>)}></Route>
         <Route exact="exact" path="/" render={props => (<Homepage isSignedIn={this.state.isSignedIn} selectMood={this.selectMood} />)}></Route>
         <Route exact="exact" path="/login" render={props => (<SignUpLogIn isSignedIn={this.state.isSignedIn} signIn={this.signIn} signUp={this.signUp}/>)}></Route>
+        <Route exact="exact" path="/submit_text" render={props => (<SubmitMoodText handleChange={this.handleMoodChange} submitMoodFunc={this.submitMoodFunc} text={this.state.mood.text}/>)}></Route>
       </Switch>
     </div>);
   }

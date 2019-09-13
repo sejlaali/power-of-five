@@ -24,7 +24,7 @@ class Homepage extends Component {
     const data = this.state.data;
     moods.forEach(mood => {
       data.forEach(data => {
-        if (mood.id == data.category) {
+        if (mood.number == data.category) {
           data.value++
         }
       })
