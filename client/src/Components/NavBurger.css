@@ -9,9 +9,10 @@
     text-align: center;
     text-decoration: none;
     margin-bottom: 20px;
-    color: black;
+    color: white;
     font-weight: 400;
-    font-size: 1rem;
+    width: 100%;
+    font-size: 1.7rem;
     letter-spacing: 0.06em;
     transition: all .5s;
   }
@@ -29,18 +30,20 @@
   
   /* Position and sizing of burger button */
   .bm-burger-button {
+    border-radius: 30%;
+    /* background-color: black; */
     position: fixed;
-    width: 36px;
-    right: 10px;
+    width: 25px;
+    left: 15px;
     top: 15px;
-    height:25px;
+    height:13px;
   }
   
   /* Color/shape of burger icon bars */
   .bm-burger-bars {
     border-radius: 80px;
-    background: lavender;
-    max-width: 12vw;
+    background: white;
+    max-width: 10vw;
     border: 1px solid black;
   }
   
@@ -63,11 +66,11 @@
   
   /* General sidebar styles */
   .bm-menu {
-    background: white;
+    background: black;
     padding: 2em 1em;
-    font-size: 1em;
-    opacity: .9; 
-}
+    font-size: 1.6em;
+    opacity: .8; 
+  }
   
   
   /* Wrapper for item list */
@@ -78,4 +81,8 @@
   /* Styling of overlay */
   .bm-overlay {
     background: rgba(255,255,255);
+  }
+
+  div.menu {
+    font-family: "Avenir";
   }
