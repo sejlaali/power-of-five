@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-//import './SubmitMoodText.css';
+import './SubmitMoodText.css';
 
 class SubmitMoodText extends Component {
   constructor(props) {
@@ -13,7 +13,12 @@ class SubmitMoodText extends Component {
         <h1>Private Journal</h1>
         <h2>date box</h2>
         <h3> mood color </h3>
-        <textarea> </textarea>
+        <textarea
+          name="text"
+          onChange={this.props.handleChange}
+          value={this.props.text}>
+        </textarea>
+        <button onClick={(e) => this.props.submitMoodFunc(e)}>Save</button>
       </div>
     );
   }

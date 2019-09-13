@@ -62,7 +62,7 @@ class SignUpLogIn extends Component {
             placeholder="Enter email"
             label="Email"
           />
-         
+
           <input
             name="password"
             value={this.state.password}
