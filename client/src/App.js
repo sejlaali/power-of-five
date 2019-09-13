@@ -65,7 +65,6 @@ class App extends Component {
 
   signOut = async e => {
     e.preventDefault();
-    alert("You are logged out.");
     localStorage.clear();
     this.setState({isSignedIn: false});
   };
