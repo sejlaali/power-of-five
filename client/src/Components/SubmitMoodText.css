@@ -55,3 +55,8 @@ textarea {
 ._4 {
   background-color: #F78547;
 }
+
+.mood-text-link p {
+  text-align: center;
+  text-decoration: underline;
+}

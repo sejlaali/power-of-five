@@ -27,6 +27,9 @@ class SubmitMoodText extends Component {
         <Link className="mood-text-link" to="/">
           <button className="add-mood-button" onClick={(e) => this.props.submitMoodFunc(e)}>Save</button>
         </Link>
+        <Link className="mood-text-link" to="/">
+          <p onClick={(e) => this.props.submitMoodFunc(e)}>Skip</p>
+        </Link>
       </div>
     );
   }
