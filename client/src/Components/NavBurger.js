@@ -10,7 +10,7 @@ class NavBurger extends Component {
         <div className="menu">
                 <Menu noOverlay pageWrapId={ "page-wrap" } right>
                 <a className="menu-item" href="/">Collective Mood </a>
-                <a className="menu-item" href="/mood-history">Mood History</a>
+                <a className="menu-item" href="/personal-history">Mood History</a>
                 <a className="menu-item" href="/journal">Private Journal</a>
                 <br />
                 <br />

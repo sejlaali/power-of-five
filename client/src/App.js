@@ -7,6 +7,7 @@ import SubmitMood from "./Components/SubmitMood"
 import NavBurger from "./Components/NavBurger"
 import SubmitMoodText from "./Components/SubmitMoodText"
 import {postMood} from "./services/api.js"
+import PersonalHistory from './Components/PersonalHistory'
 
 class App extends Component {
   constructor(props){
@@ -98,10 +99,11 @@ class App extends Component {
     <div>
       {this.state.isSignedIn ? <NavBurger signOut={this.signOut}/> : null}
       <Switch>
-        <Route exact="exact" path="/submit" component={props => (<SubmitMood selectMood={this.selectMood}/>)}></Route>
-        <Route exact="exact" path="/" render={props => (<Homepage isSignedIn={this.state.isSignedIn} selectMood={this.selectMood} />)}></Route>
-        <Route exact="exact" path="/login" render={props => (<SignUpLogIn isSignedIn={this.state.isSignedIn} signIn={this.signIn} signUp={this.signUp}/>)}></Route>
-        <Route exact="exact" path="/submit_text" render={props => (<SubmitMoodText handleChange={this.handleMoodChange} submitMoodFunc={this.submitMoodFunc} text={this.state.mood.text}/>)}></Route>
+        <Route exact path="/submit" component={props => (<SubmitMood selectMood={this.selectMood}/>)}></Route>
+        <Route exact path="/" render={props => (<Homepage isSignedIn={this.state.isSignedIn} selectMood={this.selectMood} />)}></Route>
+        <Route exact path="/login" render={props => (<SignUpLogIn isSignedIn={this.state.isSignedIn} signIn={this.signIn} signUp={this.signUp}/>)}></Route>
+        <Route exact path="/submit_text" render={props => (<SubmitMoodText handleChange={this.handleMoodChange} submitMoodFunc={this.submitMoodFunc} text={this.state.mood.text}/>)}></Route>
+        <Route exact path="/personal-history" render={props => (<PersonalHistory />)}></Route>
       </Switch>
     </div>);
   }

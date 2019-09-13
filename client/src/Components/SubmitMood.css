@@ -32,7 +32,7 @@
   border: none;
 }
 
-.submit-mood option:hover {
-  transform: scale(1.2);
+ .select-options option:active {
+  transform: scale(1.2) !important;
 }
 /* separate class for translate, interpolate classname in component w && */
