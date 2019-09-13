@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import "./SignUpLogIn.css"
 class SignUpLogIn extends Component {
   constructor(props) {
@@ -19,12 +19,12 @@ class SignUpLogIn extends Component {
       this.state.name,
       this.state.email,
       this.state.password,
-      this.state.password_confirmation
     );
   };
 
   signIn = e => {
     e.preventDefault();
+    console.log('signed in clicked')
     this.props.signIn(this.state.email, this.state.password);
   };
 
@@ -122,7 +122,7 @@ class SignUpLogIn extends Component {
 
         {this.props.isSignedIn ? (
           <div>
-            <Redirect to="/" />
+            <Redirect to="/submit" />
           </div>
         ) : (
           formToDisplay

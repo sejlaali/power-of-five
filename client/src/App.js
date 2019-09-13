@@ -22,6 +22,14 @@ class App extends Component {
   this.submitMoodFunc = this.submitMoodFunc.bind(this);
 }
 
+ componentDidMount () {
+  if (localStorage.getItem('token')) {
+  this.setState({
+    isSignedIn: true
+  }) }
+  else return
+}
+
   signUp = async (name, email, password) => {
     const payload = {
       name: name,
