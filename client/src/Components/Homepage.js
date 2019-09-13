@@ -13,6 +13,10 @@ class Homepage extends Component {
         }
     
   render() {
+    let addMood = this.props.isSignedIn ? <Link className="add-mood" to="/submit"><button className="add-mood-button">Add your Mood</button>
+    </Link> : <Link className="add-mood" to="/login">
+          <button className="add-mood-button">Add your Mood</button>
+        </Link>
     return (
       <div className="homepage">
         <h1 className="title">Collective Mood</h1>
@@ -36,9 +40,7 @@ class Homepage extends Component {
           ]}
         />
     <MoodBar />
-        <Link className="add-mood" to="/login">
-          <button className="add-mood-button">Add your Mood</button>
-        </Link>
+        {addMood}
       </div>
     );
   }
