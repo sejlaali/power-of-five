@@ -6,19 +6,21 @@ class NavBurger extends Component {
 
     render() {
         return ( 
+            <div className="nav-bar">
         <div className="menu">
                 <Menu noOverlay pageWrapId={ "page-wrap" } right>
                 <a className="menu-item" href="/">Collective Mood </a>
-                <a className="menu-item" href="/about-me">Mood History</a>
-                <a className="menu-item" href="/projects">Private Journal</a>
+                <a className="menu-item" href="/mood-history">Mood History</a>
+                <a className="menu-item" href="/journal">Private Journal</a>
                 <br />
                 <br />
                 <br />
                 <br />
                 <br />
 
-                <a className="menu-item" href="/contact-me">Sign-Out</a>
+                <a className="menu-item" href="/contact-me" onClick={this.props.signOut}>Sign-Out</a>
                 </Menu>
+        </div>
         </div>
         );
     }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-
+import "./SignUpLogIn.css"
 class SignUpLogIn extends Component {
   constructor(props) {
     super();
@@ -45,9 +45,7 @@ class SignUpLogIn extends Component {
   render() {
     const formToDisplay =
       this.state.signUp && !this.props.isSignedIn ? (
-        <div>
-          <label>Name</label>
-
+        <div className="input-container">
           <input
             name="name"
             onChange={this.handleChange}
@@ -55,7 +53,6 @@ class SignUpLogIn extends Component {
             placeholder="Name"
             label="Name"
           />
-          <label>Email</label>
 
           <input
             name="email"
@@ -65,8 +62,7 @@ class SignUpLogIn extends Component {
             placeholder="Enter email"
             label="Email"
           />
-          <label>Password</label>
-
+         
           <input
             name="password"
             value={this.state.password}
@@ -75,47 +71,55 @@ class SignUpLogIn extends Component {
             placeholder="Password"
             label="password"
           />
-          <button onClick={this.signUp} variant="primary" type="submit">
+          <button className="submit" onClick={this.signUp} variant="primary" type="submit">
             Submit
           </button>
         </div>
       ) : (
-        <div>
-          <label>Email</label>
+        <div className="input-container">
           <input
             name="email"
             value={this.state.email}
             onChange={this.handleChange}
             type="email"
-            placeholder="Enter email"
+            placeholder="EMAIL"
             label="Email"
           />
-          <label>Password</label>
           <input
             name="password"
             value={this.state.password}
             onChange={this.handleChange}
             type="password"
-            placeholder="Password"
+            placeholder="PASSWORD"
             label="password"
           />
-        <button onClick={this.signIn} variant="primary" type="submit">
+        <button className="submit" onClick={this.signIn} variant="primary" type="submit">
             Submit
           </button>
           <p>
-            Don't have an account? Sign up
+            Don't have an account?
+            </p>
             <span
-              style={{ color: "#2248a1", textDecoration: "underline" }}
+              style={{ color: "#C74FC7", fontFamily: "Avenir", textDecoration: "none" }}
               onClick={this.SignUpPage}
             >
-              here!
+              Sign Up Here
             </span>
-          </p>
         </div>
       );
 
     return (
       <div>
+        <h2 className="login-title">Mind</h2>
+        <div className="login-title-bars">
+          <option style={{backgroundColor: "#26457B"}} value="1"></option>
+          <option style={{backgroundColor: "#676AEB"}} value="2"></option>
+          <option style={{backgroundColor: "#13d128"}} value="3"></option>
+          <option style={{backgroundColor: "#FFF01A"}} value="4"></option>
+          <option style={{backgroundColor: "#F78547"}} value="5"></option>
+        </div>
+       <h2 className="login-title">Matter</h2>
+
         {this.props.isSignedIn ? (
           <div>
             <Redirect to="/" />
