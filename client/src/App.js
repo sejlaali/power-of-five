@@ -56,7 +56,7 @@ class App extends Component {
     <div>
       {this.state.isSignedIn ? <NavBurger signOut={this.signOut}/> : null}
       <Switch>
-        <Route exact="exact" path="/" component={Homepage}></Route>
+        <Route exact="exact" path="/" render={props => (<Homepage isSignedIn={this.state.isSignedIn} />)}></Route>
         <Route exact="exact" path="/submit" component={SubmitMood}></Route>
         <Route exact="exact" path="/login" render={props => (<SignUpLogIn isSignedIn={this.state.isSignedIn} signIn={this.signIn} signUp={this.signUp}/>)}></Route>
       </Switch>
