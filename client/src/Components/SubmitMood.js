@@ -3,17 +3,11 @@ import { Link } from "react-router-dom";
 import './SubmitMood.css';
 import MoodBar from "./MoodBar.js"
 
-
 class SubmitMood extends Component {
   constructor(props) {
     super();
-
-    this.state = {
-      number: null,
-      text: null,
-    };
   }
-
+  
   render() {
     return (
       <div className="submit-mood">
@@ -23,9 +17,9 @@ class SubmitMood extends Component {
           <img src={require('../images/Group.png')} alt="woman" />
           <img src={require('../images/Humaaan.png')} alt="man" />
         </div>
-        <MoodBar />
-        <Link className="add-mood" to="/login">
-          <button className="add-mood-button">Submit</button>
+        <MoodBar selectMood={this.props.selectMood}/>
+        <Link className="add-mood" to="/submit_text">
+          <button className="add-mood-button">Next</button>
         </Link>
       </div>
     );

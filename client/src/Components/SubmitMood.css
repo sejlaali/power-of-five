@@ -35,3 +35,4 @@
 .submit-mood option:hover {
   transform: scale(1.2);
 }
+/* separate class for translate, interpolate classname in component w && */

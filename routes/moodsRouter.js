@@ -1,6 +1,7 @@
 const express = require('express');
 const { Mood, User } = require('../models');
 const moodsRouter = express.Router();
+const jwt = require('jsonwebtoken');
 const { hash,
         compare,
         encode,
@@ -19,15 +20,17 @@ moodsRouter.get('/', async (req, res) => {
 
 moodsRouter.post('/', async (req, res) => {
   try {
-    let { number, text, id } = req.body;
+    let { mood, token } = req.body;
+    const userData = await jwt.decode(token, 'SECRET');
+    const id = userData.id;
     const user = await User.findByPk(id)
-    const mood = await Mood.create({
-      number,
-      text
+    const moodObj = await Mood.create({
+      number: mood.number,
+      text: mood.text
     });
 
-    await mood.setUser(user)
-    res.json(mood)
+    await moodObj.setUser(user)
+    res.json(moodObj)
 
   } catch(e) {
     console.error(e);
